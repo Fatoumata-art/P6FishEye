@@ -39,9 +39,12 @@ function photographerFactory(data) {
 
          // link for photographer page by id
          const linkUrl = document.createElement("a")
-         const linkNewPage = `./photographer.html?id=${id}`
-         linkUrl.setAttribute('href', linkNewPage)
-         article.appendChild(linkUrl);
+         linkUrl.href = `./photographer.html?id=${id}` 
+		article.append(linkUrl); 
+        linkUrl.appendChild(h2); // put <h2> into <a>
+      
+
+
 
         return (article);
     }

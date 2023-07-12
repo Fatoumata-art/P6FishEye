@@ -22,10 +22,25 @@
           <h2>Contactez-moi</h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
-				<form>
-					<div>
+				<form name="contact">
+					<div class="formData">
 						<label>Prénom</label>
-						<input />
+						<input class="text-control" type="text" id="fname" name="fname"  >
+            <span class="msgError"></span>
+					</div>
+          <div class="formData">
+						<label>Nom</label>
+						<input class="text-control" type="text" id="lname" name="lname" >
+            <span class="msgError"></span>
+					</div>
+          <div class="formData">
+            <label for="email">E-mail</label><br>
+            <input class="text-control" type="email" id="email" name="email"> <br>
+            <span class="msgError"></span>
+          </div>
+          <div class="formData">
+						<label>Message</label>
+						<textarea name="" id="contactMessage" cols="30" rows="10"></textarea>
 					</div>
           <button class="contact_button">Envoyer</button>
 				</form>
