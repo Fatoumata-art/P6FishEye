@@ -14,7 +14,7 @@
             return photographers
         } catch (err) {
             console.log(err)
-            return new Error(err)
+            return new Error('impossible de contacter le serveur')
         }
 
         
