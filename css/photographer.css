@@ -1,3 +1,5 @@
+@import url('https://pro.fontawesome.com/releases/v5.15.3/css/all.css');
+
 #contact_modal {
     display: none;
 }
@@ -80,3 +82,39 @@ form textarea {
     border: none;
     border-radius: 5px;
 }
+.photograph-section{
+    
+    width: 100%;
+    box-sizing: border-box;
+}
+.photograph-body{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    
+}
+.photograph-media-video, .photograph-media-img{
+    margin: 10px;
+    padding: 0;
+    border-radius: 5px;
+    object-fit: cover;
+    height: 300px;
+    width: 95%;
+}
+
+.photograph-media-title, .photograph-media-likes-count {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: left;
+    justify-content: start;
+    color: #901C1C;
+  }
+   .photograph-media-likes {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    font-size: 1rem;
+    text-align: right;
+    color: #901C1C;
+   }
+  

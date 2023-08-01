@@ -25,8 +25,12 @@ displayMedia()
         
 }
 
+function displayBanner(){
+  const photographBanner = document.querySelector('photograph-header'); 
+}
  
 function displayMedia() {
+ 
     const mediaContainer = document.querySelector('.photograph-body');
   
     if (mediaContainer) {
@@ -46,7 +50,7 @@ function displayMedia() {
 - 
           
 async function init() {
-  //const photographer = getPhotographer()
+  //const photographer = getPhotographer()-
   //const displayMedia = displayMedia(media)
 
 }
