@@ -3,6 +3,29 @@ function photographerFactory(data) {
 
     const picture = `assets/photographers/${portrait}`;
 
+    //  Header Photographer's single page
+    function getPhotographerBannerDOM() {
+        const banner = document.getElementById('main')
+        banner.classList.add('banner');
+        
+        banner.innerHTML = `
+        <div class="colOne">
+            <h1 class="banner">${name}</h1>
+            <h3 class="bannerLocation">${city}, ${country}</h3>
+            <p class="bannerTagline">${tagline}</p>
+        </div>
+        <div class="colTwo">
+            <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        </div>
+        <div class="colThree">
+            <img class="bannerPicture" src="${picture}" alt="${name}"></img>
+        </div>
+        `
+
+        return banner
+    }      
+
+
     function getUserCardDOM() {
         // article
         const article = document.createElement( 'article' );
@@ -48,5 +71,5 @@ function photographerFactory(data) {
 
         return (article);
     }
-    return { name, picture, getUserCardDOM }
+    return { picture,  getUserCardDOM, getPhotographerBannerDOM }
 }

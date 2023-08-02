@@ -8,7 +8,9 @@ const id = urlParams.get('id')
 
 console.log(id);
 
-displayMedia()
+displayMedia();
+//displayBanner();
+displayCounts();
 
  async function getPhotographerMediaList() {
        
@@ -24,9 +26,13 @@ displayMedia()
     return mediaList;
         
 }
-
-function displayBanner(){
-  const photographBanner = document.querySelector('photograph-header'); 
+//
+function displayBanner(photographer){
+  const photographBanner = document.querySelector('.photograph-header');
+  const photographerModel = photographerFactory(photographer);
+  console.log("banniere",photographerModel)
+  //const bannerDOM = photographModel.getPhotographerBannerDOM();
+  //photographBanner.appendChild(bannerDOM);
 }
  
 function displayMedia() {
@@ -38,7 +44,7 @@ function displayMedia() {
       mediaListObj.then ( mediaList => {
         mediaList.forEach((mediaObj) => {
           const mediaModel = mediaFactory(mediaObj);
-          console.log("mediaModel : ", mediaModel)
+          //console.log("mediaModel : ", mediaModel)
           const mediaDOM = mediaModel.getMediaDOM();
           mediaContainer.appendChild(mediaDOM);
         });
@@ -46,7 +52,32 @@ function displayMedia() {
     }
   }
   
-
+  // price  photographer
+  async function displayCounts(photographer) {
+    const main = document.querySelector('main');
+    const countDOM = document.createElement('div');
+    countDOM.classList.add('counter');
+    main.appendChild(countDOM);
+  
+    // Get all divs with the class .photograph-media-likes-count
+    const likesList = document.querySelectorAll('.photograph-media-likes-count');
+    let totalLikes = 0;
+    // Iterate through each div and add up the total likes
+    likesList.forEach(likesDiv => {
+      const likes = parseInt(likesDiv.textContent);
+      totalLikes += likes;
+    });
+  
+    countDOM.innerHTML =
+      `<div class="counter-likes">
+          ${totalLikes} <i class="fas fa-heart"></i>
+      </div>
+      <div class="counter-daily">
+          ${photographer.price} <span>€ /jour</span>
+      </div>`;
+  
+    
+  }
 - 
           
 async function init() {

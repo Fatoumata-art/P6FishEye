@@ -1,5 +1,5 @@
 function mediaFactory(media){
-    const { name, city, country, tagline, title, image, likes, date, price} = media;
+    const {  title, image, likes, date, price} = media;
 
     const photo = `assets/images/${media.photographerId}/${media.image}`;
     const video = `assets/images/${media.photographerId}/${media.video}`;
@@ -12,30 +12,6 @@ function mediaFactory(media){
     const mediaDOM = document.createElement('figure');
     mediaDOM.classList.add('photograph-media');
     mediaSection.appendChild(mediaDOM);
-
-
- //  Header Photographer's single page
-    function getPhotographerBannerDOM() {
-        const banner = document.createElement('div')
-        banner.className = "banner"
-        
-        banner.innerHTML = `
-        <div class="colOne">
-            <h1 class="banner">${name}</h1>
-            <h3 class="bannerLocation">${city}, ${country}</h3>
-            <p class="bannerTagline">${tagline}</p>
-        </div>
-        <div class="colTwo">
-            <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-        </div>
-        <div class="colThree">
-            <img class="bannerPicture" src="${picture}" alt="${name}"></img>
-        </div>
-        `
-
-        return banner
-    }      
-
        
        //check if it is img or video
        if(media.video){
@@ -60,28 +36,34 @@ function mediaFactory(media){
             mediaDOM.appendChild(img);
        }
 
+       // mediaInfo
+      const mediaInfo = document.createElement('div');
+      mediaInfo.classList.add('photograph-media-info');
+      mediaDOM.appendChild(mediaInfo);
+
         
       //title
       const h2 = document.createElement('h2');
       h2.textContent = media.title;
       h2.classList.add("photograph-media-title")
-      mediaDOM.appendChild(h2);
+      mediaInfo.appendChild(h2);
 
       // mediaLikes
       const mediaLikes = document.createElement('div');
       mediaLikes.classList.add('photograph-media-likes');
+      mediaInfo.appendChild(mediaLikes);
 
       // likes per media
       const likeCount = document.createElement('span');
       likeCount.classList.add('photograph-media-likes-count');
       likeCount.innerText = media.likes;
       likeCount.setAttribute('role', 'text');
-      mediaDOM.appendChild(likeCount);
+      mediaLikes.appendChild(likeCount);
 
        // like button
        const likeButton = document.createElement('i');
        likeButton.classList.add('fas', 'fa-heart');
-       mediaDOM.appendChild(likeButton);
+       mediaLikes.appendChild(likeButton);
        if (media.isLiked) {
          likeButton.classList.add('liked');
        }
@@ -110,12 +92,14 @@ function mediaFactory(media){
          counterLikes.innerHTML = `${totalLikes} <i class="fas fa-heart"></i>`;
        });
 
-     
-
+        likeButton.setAttribute('role', 'button');
+        likeButton.setAttribute('aria-label', 'Like');
+        
+    
       return mediaDOM
     }
 
     return  {
-        title, photo, getMediaDOM, getPhotographerBannerDOM
+        title, photo,getMediaDOM, 
     }
 }

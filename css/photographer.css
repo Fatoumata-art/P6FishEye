@@ -90,6 +90,8 @@ form textarea {
 .photograph-body{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    padding-left: 30px;
+    padding-right: 30px;
     
 }
 .photograph-media-video, .photograph-media-img{
@@ -100,6 +102,12 @@ form textarea {
     height: 300px;
     width: 95%;
 }
+.photograph-media-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+}
 
 .photograph-media-title, .photograph-media-likes-count {
     margin: 0;
@@ -109,12 +117,86 @@ form textarea {
     justify-content: start;
     color: #901C1C;
   }
+  .photograph-media-likes-count {
+    font-weight: lighter;
+  }
    .photograph-media-likes {
-    display: flex;
-    align-items: center;
-    justify-content: end;
+    
     font-size: 1rem;
     text-align: right;
     color: #901C1C;
    }
+   .photograph-media-likes i:hover {
+    cursor: pointer;
+  }
+  
+  .photograph-media-likes-count {
+    margin-right: 0.5rem;
+  }
+  .counter {
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+    background: #DB8876;
+    border-radius: 5px 5px 0 0;
+    z-index: 997;
+    width: 200px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.counter-likes {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.counter-likes i, .counter-hourly span {
+    margin-left: 5px;
+}
+
+.counter-hourly {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+  
+
+  
+   .filter-container {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+  }
+  
+  .filter-container label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 20px;
+  }
+  
+  .filter-container select {
+    font-size: 14px;
+    font-weight: 400;
+    color: white;
+    padding: 12px 24px;
+    width: auto;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 5px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  
+  .filter-container select::-ms-expand {
+    display: none;
+  }
+  
+  .filter-container select option {
+    background-color: #901C1C;
+  }
   
