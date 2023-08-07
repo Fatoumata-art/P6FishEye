@@ -5,9 +5,9 @@ function photographerFactory(data) {
 
     //  Header Photographer's single page
     function getPhotographerBannerDOM() {
-        const banner = document.getElementById('main')
+        const banner = document.createElement('div')
         banner.classList.add('banner');
-        
+        console.log(banner)
         banner.innerHTML = `
         <div class="colOne">
             <h1 class="banner">${name}</h1>
@@ -21,11 +21,10 @@ function photographerFactory(data) {
             <img class="bannerPicture" src="${picture}" alt="${name}"></img>
         </div>
         `
-
+console.log("je suis la banniere")
         return banner
-    }      
-
-
+    } 
+   
     function getUserCardDOM() {
         // article
         const article = document.createElement( 'article' );
@@ -40,14 +39,12 @@ function photographerFactory(data) {
         h2.textContent = name;
         article.appendChild(h2);
 
-
         // localisation
         const localisation = document.createElement( 'h3' );
         localisation.textContent = city + ', ' + country
         localisation.classList.add("photograph-localisation");
         article.appendChild(localisation);
-
-        
+ 
         // paragraph
         const paragraph = document.createElement('h4')
         paragraph.textContent = tagline
@@ -66,9 +63,6 @@ function photographerFactory(data) {
 		article.append(linkUrl); 
         linkUrl.appendChild(h2); // put <h2> into <a>
       
-
-
-
         return (article);
     }
     return { picture,  getUserCardDOM, getPhotographerBannerDOM }
