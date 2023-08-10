@@ -9,15 +9,15 @@ function photographerFactory(data) {
         banner.classList.add('banner');
         console.log(banner)
         banner.innerHTML = `
-        <div class="colOne">
+        <div class="identityPhotographer">
             <h1 class="banner">${name}</h1>
             <h3 class="bannerLocation">${city}, ${country}</h3>
             <p class="bannerTagline">${tagline}</p>
         </div>
-        <div class="colTwo">
+        <div class="bannerModal">
             <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
         </div>
-        <div class="colThree">
+        <div class="bannerPicture">
             <img class="bannerPicture" src="${picture}" alt="${name}"></img>
         </div>
         `

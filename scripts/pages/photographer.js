@@ -24,8 +24,11 @@ function displayBanner(data){
   photographBanner.appendChild(bannerDOM);
  
 }
-async function getPhotographerMediaList() {
-       
+async function getPhotographerMediaList(sortMedia = 'popularity') {
+  
+  const parameters = new URLSearchParams(window.location.search)
+  const idString = parameters.get('id');
+
   const photographerData = await fetch('./data/photographers.json')
   .then(response => response.json())
   
@@ -33,6 +36,15 @@ async function getPhotographerMediaList() {
 const mediaList = photographerData.media.filter(
 mediaPage => mediaPage.photographerId == id
 )
+// sort the media by the specified property for filtering options
+if (sortMedia === 'popularity') {
+  mediaList.sort((a, b) => b.likes - a.likes);
+} else if (sortMedia === 'date') {
+  mediaList.sort((a, b) => new Date(b.date) - new Date(a.date));
+} else if (sortMedia === 'title') {
+  mediaList.sort((a, b) => a.title.localeCompare(b.title));
+}
+
 return mediaList;
   
 }
@@ -80,13 +92,61 @@ async function displayCounts(photographer) {
 
   
 }
+// Get the select element and add an event listener to it
+const filterSelect = document.querySelector('#filter-select');
+filterSelect.addEventListener('change', (event) => {
+  // Get the selected option value
+  const sortMedia = event.target.value;
 
+  // Update the URL with the selected option value
+  const parameters = new URLSearchParams(window.location.search);
+  parameters.set('sort', sortMedia);
+  window.location.search = parameters.toString();
+
+  // Update the selected option in the filter button
+  filterSelect.value = sortMedia;
+});
+
+// medias sorted by...
+async function displaySortedMedia(media) {
+  const mediaContainer = document.querySelector('.photograph-body');
+
+  if (mediaContainer) {
+    media.forEach((mediaObj) => {
+      const mediaModel = mediaFactory(mediaObj);
+      const mediaDOM = mediaModel.getMediaDOM();
+      mediaContainer.appendChild(mediaDOM);
+    });
+  }
+}
 async function init() {
 const photograph = await getPhotographer();
+
+// Get the sort filter from the URL parameters
+const parameters = new URLSearchParams(window.location.search);
+const sortMedia = parameters.get('sort');
+const photographmMediaList = await getPhotographerMediaList(sortMedia);
+  displaySortedMedia(photographmMediaList);
   console.log(photograph)
   displayBanner(photograph);
-  displayMedia();
+
+  // Adding photographer's name into contact modal form 
+  const modalContainer = document.getElementsByClassName('modal')
+  const contactModalName = document.createElement('h2');
+  contactModalName.classList.add("contactModalname");
+  contactModalName.innerHTML = `"Contactez-" + ${photograph.name}`;
+  modalContainer.appendChild(contactModalName)
+  //displayMedia();
   displayCounts(photograph);
+
+  // Set the selected option in the filter button based on the URL parameter
+  if (sortMedia === 'date') {
+    filterSelect.selectedIndex = 1;
+  } else if (sortMedia === 'title') {
+    filterSelect.selectedIndex = 2;
+  } else {
+    filterSelect.selectedIndex = 0;
+  }
 }
   
 init();  
