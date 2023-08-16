@@ -3,8 +3,6 @@ let fname = document.getElementById("fname");
 let l_name = document.getElementById("lname");
 let email = document.getElementById("email");
 let message = document.getElementById("contactMessage");
-const validation = document.forms["contact"];
-
 
 function displayModal() {
     const modal = document.getElementById("contact_modal");
@@ -109,9 +107,11 @@ function isFormValid() {
   return true;
 }
 
+const validation = document.getElementById["contact_button"];
 
-validation.addEventListener('submit', function(e) {
-console.log
+
+validation.addEventListener('click', function(e) {
+
   e.preventDefault();
   if (!isFormValid()) {
     errorSubmit.innerHTML = "Veuillez renseigner tous les champs";

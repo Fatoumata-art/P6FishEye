@@ -125,6 +125,7 @@ async function displaySortedMedia(media) {
 // lightbox
  function getLightBox(){
   const mediaContainer = document.querySelector('.photograph-body');
+  console.log("hello");
   const lightboxModel = getLightboxDOM();
   mediaContainer.appendChild(lightboxModel);
   

@@ -1,7 +1,8 @@
 
 // LightBox HTML Structure
 function getLightboxDOM() {
-  const lightboxDom = document.createElement('div')
+  const lightboxDom = document.getElementById('lightboxId');
+  console.log(lightboxDom)
   lightboxDom.classList.add('lightbox');
   lightboxDom.innerHTML = `
     <button class="lightbox-close">Fermer</button>
