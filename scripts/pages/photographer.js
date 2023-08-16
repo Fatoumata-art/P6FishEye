@@ -91,6 +91,8 @@ async function displayCounts(photographer) {
     </div>`;
 
   
+
+
 }
 // Get the select element and add an event listener to it
 const filterSelect = document.querySelector('#filter-select');
@@ -119,6 +121,20 @@ async function displaySortedMedia(media) {
     });
   }
 }
+
+// lightbox
+ function getLightBox(){
+  const mediaContainer = document.querySelector('.photograph-body');
+  const lightboxModel = getLightboxDOM();
+  mediaContainer.appendChild(lightboxModel);
+  
+
+      
+    }
+
+ 
+
+
 async function init() {
 const photograph = await getPhotographer();
 
@@ -131,11 +147,10 @@ const photographmMediaList = await getPhotographerMediaList(sortMedia);
   displayBanner(photograph);
 
   // Adding photographer's name into contact modal form 
-  const modalContainer = document.getElementsByClassName('modal')
-  const contactModalName = document.createElement('h2');
-  contactModalName.classList.add("contactModalname");
-  contactModalName.innerHTML = `"Contactez-" + ${photograph.name}`;
-  modalContainer.appendChild(contactModalName)
+ 
+  const contactModalName = document.getElementById('photographerName');
+  contactModalName.innerHTML = ` ${photograph.name}`;
+
   //displayMedia();
   displayCounts(photograph);
 
@@ -147,6 +162,11 @@ const photographmMediaList = await getPhotographerMediaList(sortMedia);
   } else {
     filterSelect.selectedIndex = 0;
   }
+  // lightBox 
+  getLightBox()
+  openLightbox()
+  
 }
+  
   
 init();  

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
@@ -9,7 +9,8 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <a href="index.html" id="lien-logo"><img src="assets/images/logo.png" class="logo" alt="Fisheye Home Page" aria-label="Voir la liste de tous les photographes"/></a>
+    </header>
     </header>
     <main id="main">
       <div class="photograph-header">
@@ -29,14 +30,16 @@
       <div class="photograph-body">
 
       </div>
+    </div>
     </main>
     <div id="contact_modal">
 			<div class="modal">
 				<header>
-          <h2>Contac-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <h2>Contactez-moi <span></span></h2>
+          <p id="photographerName"></p>
+          <img src="assets/icons/close.svg" onclick="closeModal()" alt="close"/>
         </header>
-				<form name="contact">
+				<form name="contact"  action="" method="post">
 					<div class="formData">
 						<label>Prénom</label>
 						<input class="text-control" type="text" id="fname" name="fname"  >
@@ -54,23 +57,17 @@
           </div>
           <div class="formData">
 						<label>Message</label>
-						<textarea name="" id="contactMessage" cols="30" rows="10"></textarea>
+						<textarea name="contactMessage" id="contactMessage" cols="30" rows="10"></textarea>
 					</div>
           <button class="contact_button">Envoyer</button>
 				</form>
 			</div>
 		</div>
-     <!-- lightbox -->
-     <div class="lightbox" role="dialog">
-      <div class="lightbox-container">
-        <button class="close-btn">&times;</button>
-        <div class="lightbox-content"></div>
-      </div>
-    </div>
-   
+     <!-- lightbox  -->
     <script src="/scripts/factories/photographer.js"></script>
     <script src="scripts/factories/media.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
+    <script src="scripts/factories/lightBox.js" defer></script>
     
     <script src="/scripts/utils/contactForm.js"></script>
   </body>

@@ -12,6 +12,9 @@ function mediaFactory(media){
     const mediaDOM = document.createElement('figure');
     mediaDOM.classList.add('photograph-media');
     mediaSection.appendChild(mediaDOM);
+    const linkMedia = document.createElement('a');
+    linkMedia.classList.add("linkMedia")
+
        
        //check if it is img or video
        if(media.video){
@@ -22,7 +25,8 @@ function mediaFactory(media){
             videoLoad.setAttribute('mediaID', `${media.id}`)
             videoLoad.type = 'video/mp4';
             videoLoad.alt = media.title;
-            mediaDOM.appendChild(videoLoad);
+            mediaDOM.appendChild(linkMedia);
+            linkMedia.appendChild(videoLoad);
             // Add a <source> element to the mediaLightboxVideoElement to specify the video file type
         
 
@@ -33,7 +37,8 @@ function mediaFactory(media){
             img.setAttribute("src", photo);
             img.alt = media.title;
             img.setAttribute('mediaID', `${media.id}`)
-            mediaDOM.appendChild(img);
+            mediaDOM.appendChild(linkMedia);
+            linkMedia.appendChild(img);
        }
 
        // mediaInfo

@@ -34,6 +34,7 @@ function closeModal() {
     formData.classList.remove("error")
   }
 
+ 
   // control entre de prénom
 fname.addEventListener("input", () => {
     const regexFname = /^[a-zA-Z]+(([- ])?[a-zA-Z])+$/;
@@ -95,14 +96,31 @@ fname.addEventListener("input", () => {
     }
 })
   
+function isFormValid() {
+  if (!fname.value ||
+    !l_name.value ||
+    !email.value ||
+    !message.value
+   
+    ) {
+      return false;
+  }else{
+    alert("message envoyé");
+  return true;
+}
 
-    validation.addEventListener('submit', function(e) {
-        console.log
-          e.preventDefault();
-            alert("Veuillez renseigner tous les champs");
-           
-            return false;
-          //}    
-        })
-          
+
+validation.addEventListener('submit', function(e) {
+console.log
+  e.preventDefault();
+  if (!isFormValid()) {
+    errorSubmit.innerHTML = "Veuillez renseigner tous les champs";
+    errorSubmit.style.color = "red";
+    return false;
+  } else {
   
+    return true;
+  }
+})
+          
+}

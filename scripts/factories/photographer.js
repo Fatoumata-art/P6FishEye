@@ -7,7 +7,6 @@ function photographerFactory(data) {
     function getPhotographerBannerDOM() {
         const banner = document.createElement('div')
         banner.classList.add('banner');
-        console.log(banner)
         banner.innerHTML = `
         <div class="identityPhotographer">
             <h1 class="banner">${name}</h1>
@@ -21,7 +20,6 @@ function photographerFactory(data) {
             <img class="bannerPicture" src="${picture}" alt="${name}"></img>
         </div>
         `
-console.log("je suis la banniere")
         return banner
     } 
    
