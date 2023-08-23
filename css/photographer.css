@@ -358,7 +358,7 @@ form textarea {
     margin: 0 50px;
   }
 
-  .lightbox-container img {
+  .linkMedia {
     object-fit: cover;
     max-height: 90vh;
     max-width: 100%;

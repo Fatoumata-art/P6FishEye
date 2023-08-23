@@ -1,5 +1,6 @@
 //Mettre le code JavaScript lié à la page photographer.html
 
+
 //récupération du url id
 const queryString = document.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -64,7 +65,7 @@ async function displayMedia() {
         });
       })
     }
-  
+    //loadLightbox(mediaList);
 }
 // price  photographer
 async function displayCounts(photographer) {
@@ -89,9 +90,6 @@ async function displayCounts(photographer) {
     <div class="counter-daily">
         ${photographer.price} <span>€ /jour</span>
     </div>`;
-
-  
-
 
 }
 // Get the select element and add an event listener to it
@@ -123,15 +121,13 @@ async function displaySortedMedia(media) {
 }
 
 // lightbox
- function getLightBox(){
-  const mediaContainer = document.querySelector('.photograph-body');
-  console.log("hello");
-  const lightboxModel = getLightboxDOM();
-  mediaContainer.appendChild(lightboxModel);
+// function getLightBox(){
   
+//   const lightboxModel = getLightboxDOM();
+//   document.body.appendChild(lightboxModel);
 
-      
-    }
+//   console.log("Je suis le lightbox",lightboxModel)      
+//    }
 
  
 
@@ -163,9 +159,6 @@ const photographmMediaList = await getPhotographerMediaList(sortMedia);
   } else {
     filterSelect.selectedIndex = 0;
   }
-  // lightBox 
-  getLightBox()
-  openLightbox()
   
 }
   

@@ -14,7 +14,12 @@ function mediaFactory(media){
     mediaSection.appendChild(mediaDOM);
     const linkMedia = document.createElement('a');
     linkMedia.classList.add("linkMedia")
-
+    linkMedia.href = "#";
+    linkMedia.setAttribute("alt",title+", vue rapprochée");
+    
+        
+    
+    
        
        //check if it is img or video
        if(media.video){
@@ -27,8 +32,7 @@ function mediaFactory(media){
             videoLoad.alt = media.title;
             mediaDOM.appendChild(linkMedia);
             linkMedia.appendChild(videoLoad);
-            // Add a <source> element to the mediaLightboxVideoElement to specify the video file type
-        
+            
 
        }else{
              // picture
@@ -39,6 +43,9 @@ function mediaFactory(media){
             img.setAttribute('mediaID', `${media.id}`)
             mediaDOM.appendChild(linkMedia);
             linkMedia.appendChild(img);
+            // linkMedia.href = `./assets/images/${media.photographerId}/${media.image}`;
+            // linkMedia.target = 'blank'
+            // linkMedia.setAttribute("alt",title+", vue rapprochée");
        }
 
        // mediaInfo
