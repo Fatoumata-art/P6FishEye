@@ -32,7 +32,10 @@ function mediaFactory(media){
             videoLoad.alt = media.title;
             mediaDOM.appendChild(linkMedia);
             linkMedia.appendChild(videoLoad);
-            
+            linkMedia.href = ""
+           // linkMedia.href = `./assets/images/${media.photographerId}/${media.image}`;
+            // linkMedia.target = 'blank'
+            // linkMedia.setAttribute("alt",title+", vue rapprochée");
 
        }else{
              // picture

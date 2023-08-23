@@ -121,13 +121,13 @@ async function displaySortedMedia(media) {
 }
 
 // lightbox
-// function getLightBox(){
+function getLightBox(){
   
-//   const lightboxModel = getLightboxDOM();
-//   document.body.appendChild(lightboxModel);
+  const lightboxModel = getLightboxDOM();
+  document.body.appendChild(lightboxModel);
 
-//   console.log("Je suis le lightbox",lightboxModel)      
-//    }
+  console.log("Je suis le lightbox",lightboxModel)      
+   }
 
  
 
@@ -159,7 +159,8 @@ const photographmMediaList = await getPhotographerMediaList(sortMedia);
   } else {
     filterSelect.selectedIndex = 0;
   }
-  
+  //lightbox
+  getLightBox()
 }
   
   
