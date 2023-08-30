@@ -14,7 +14,7 @@ function mediaFactory(media){
     mediaSection.appendChild(mediaDOM);
     const linkMedia = document.createElement('a');
     linkMedia.classList.add("linkMedia")
-    linkMedia.href = "#";
+   // linkMedia.href = "#";
     linkMedia.setAttribute("alt",title+", vue rapprochée");
     
         
@@ -33,9 +33,9 @@ function mediaFactory(media){
             mediaDOM.appendChild(linkMedia);
             linkMedia.appendChild(videoLoad);
             linkMedia.href = ""
-           // linkMedia.href = `./assets/images/${media.photographerId}/${media.image}`;
-            // linkMedia.target = 'blank'
-            // linkMedia.setAttribute("alt",title+", vue rapprochée");
+            linkMedia.href = `./assets/images/${media.photographerId}/${media.image}`;
+            linkMedia.target = 'blank'
+            linkMedia.setAttribute("alt",title+", vue rapprochée");
 
        }else{
              // picture
@@ -46,9 +46,9 @@ function mediaFactory(media){
             img.setAttribute('mediaID', `${media.id}`)
             mediaDOM.appendChild(linkMedia);
             linkMedia.appendChild(img);
-            // linkMedia.href = `./assets/images/${media.photographerId}/${media.image}`;
-            // linkMedia.target = 'blank'
-            // linkMedia.setAttribute("alt",title+", vue rapprochée");
+            linkMedia.href = `./assets/images/${media.photographerId}/${media.image}`;
+            linkMedia.target = 'blank'
+            linkMedia.setAttribute("alt",title+", vue rapprochée");
        }
 
        // mediaInfo

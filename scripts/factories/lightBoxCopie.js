@@ -1,55 +1,127 @@
-window.onload = () => {
-    const lightbox = document.querySelector("#lightbox");
-    const close = document.querySelector("lightbox-close");
-    
-    const links = document.querySelectorAll("photograph-media-video img", "photograph-media-video");
 
-    console.log("gggjffj",links)
-    
-    for (var t=0; t<mediasContainer.length; t++) { 
-        if (mediasContainer[t].src== selectedPictures.src) {  
-            numberPictureInArray = t;
-            if(numberPictureInArray==0) {
-                previousIcon.style.display ="none";  
-            }
-            if(numberPictureInArray== mediasContainer.length-1) {
-                nextIcon.style.display ="none";  
-            }
-        }
-    } 
-    picture.src = selectedPictures.src;
-    video.src = selectedPictures.src;
- 
-    
-    // On active le bouton close
-    close.addEventListener("click", function(){
-        lightbox.classList.remove("show");
-    });
+// window.onload = () => {
+//   const mediaLightbox = document.getElementsByClassName('.photograph-media')
+//   console.log(mediaLightbox);
+// }
 
-    // On ferme au clic sur la lightbox
-    lightbox.addEventListener("click", function(){
-        lightbox.classList.remove("show");
-    });
-}
 
-// LightBox HTML Structure
 function getLightboxDOM() {
   const lightboxDom = document.getElementById('lightboxId');
-  lightboxDom.classList.add('lightbox');
+  
   lightboxDom.innerHTML = `
     <button class="lightbox-close">Fermer</button>
     <button class="lightbox-next">Suivant</button>
     <button class="lightbox-prev">Précédent</button>
     <div class="lightbox-container">
-      <img src="" alt="">
+      <img src="Event_Sparklers.jpg" alt="">
     </div>
   ` 
   
-     // lightboxDom.querySelector('.lightbox-close').addEventListener('click', closeLightbox)
-      // add an event listener for the escape key
-     // document.addEventListener('keydown', handleKeyPress);
+  
 
-     
-
-  return lightboxDom
+ // return lightboxDom
 } 
+
+function showMedia(media) {
+  const lightbox = document.querySelector('.lightbox');
+  lightbox.style.display = 'block';
+  document.querySelector('.lightbox').setAttribute('aria-hidden', 'false');
+  let img = lightbox.querySelector('.lightbox-container img');
+  let video = lightbox.querySelector('.lightbox-container video');
+  const captionText = lightbox.querySelector(".caption");
+
+  if(media.video){
+    //video
+    video.alt = media.title;
+    video.src = `assets/images/${media.photographerId}/${media.video}`;
+    video.style = "display: block";
+    img.style = "display: none;"; 
+  } else{
+    // picture
+   img.src = `assets/images/${media.photographerId}/${media.image}`;
+  img.alt = media.title;
+   img.style = "display: block;";
+   video.style = "display: none;";
+ }
+  captionText.innerHTML = media.title;
+}
+
+// OPEN
+function openLightbox(mediaList, index) {
+  let media = mediaList[index];
+  console.log(" media = ", media);
+    // display the lightbox with the clicked image
+    const lightbox = document.querySelector('.lightbox');
+    const nextButton = lightbox.querySelector(".lightbox-next");
+    const prevButton = lightbox.querySelector(".lightbox-prev");
+    
+
+    nextButton.addEventListener('click', function() {
+      if (index < mediaList.length) {
+        index++;
+        media = mediaList[index];
+        showMedia(media);
+      } 
+     })
+     prevButton.addEventListener('click', function() {
+        index--;
+        media = mediaList[index];
+        showMedia(media);
+     
+      
+     })
+    
+
+     showMedia(media);
+
+//  function preview(){
+//   //let selectedMedia = media.img.src
+//   let selectedMedia = media.img
+   
+//   console.log("selectedMedia", selectedMedia)
+//   img = selectedMedia
+//   if (!selectedMedia) {
+//     selectedMedia = media.video
+//     video = selectedMedia
+//   } 
+
+ 
+
+//  }
+
+ 
+ 
+ 
+}
+
+
+function closeLightbox(){
+   // add an event listener to the close button
+  const closeButton = document.querySelector('.lightbox-close');
+  closeButton.setAttribute('aria-label', 'close')
+  if (closeButton) {
+    closeButton.addEventListener('click', function (){
+      // hide the lightbox
+  document.querySelector('.lightbox').style.display = "none";
+  document.querySelector('.lightbox').setAttribute('aria-hidden', 'true');
+
+  // reset the video element to stop playback
+  const video = document.querySelector('.photograph-media-video');
+  if (video) {
+    video.pause();
+    video.currentTime = 0;
+  }
+})
+
+    
+  }
+}
+
+
+function init(){
+  closeLightbox()
+
+  
+}
+
+init();

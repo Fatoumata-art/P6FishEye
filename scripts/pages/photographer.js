@@ -60,12 +60,13 @@ async function displayMedia() {
           console.log("Test : ", mediaObj)
           const mediaModel = mediaFactory(mediaObj);
           const mediaDOM = mediaModel.getMediaDOM();
+
           console.log("mediaModel : ", mediaDOM)
           mediaContainer.appendChild(mediaDOM);
         });
       })
     }
-    //loadLightbox(mediaList);
+    
 }
 // price  photographer
 async function displayCounts(photographer) {
@@ -107,32 +108,53 @@ filterSelect.addEventListener('change', (event) => {
   filterSelect.value = sortMedia;
 });
 
+
 // medias sorted by...
 async function displaySortedMedia(media) {
   const mediaContainer = document.querySelector('.photograph-body');
-
+ 
   if (mediaContainer) {
-    media.forEach((mediaObj) => {
+    media.forEach((mediaObj, index) => {
       const mediaModel = mediaFactory(mediaObj);
       const mediaDOM = mediaModel.getMediaDOM();
+      console.log("mediaObj", mediaObj, " index = ", index);
+
+     console.log("test", mediaDOM);
+      
+// display lightbox
+      mediaDOM.addEventListener('click', function(e){
+        e.preventDefault();
+        /*console.log("mediaDOM ",mediaDOM)
+
+        let obj = mediaDOM.querySelector('.linkMedia img');
+        if (!obj) {
+          obj = mediaDOM.querySelector('.linkMedia video');
+        } 
+
+        const mediaID = obj.getAttribute("mediaID");
+         console.log("mediaID  ", mediaID)*/
+       
+        openLightbox(media, index);
+
+        
+      })
+      
+
       mediaContainer.appendChild(mediaDOM);
-    });
+
+     
+  })
   }
+  
 }
 
-// lightbox
-function getLightBox(){
-  
-  const lightboxModel = getLightboxDOM();
-  document.body.appendChild(lightboxModel);
-
-  console.log("Je suis le lightbox",lightboxModel)      
-   }
 
  
 
 
 async function init() {
+
+
 const photograph = await getPhotographer();
 
 // Get the sort filter from the URL parameters
@@ -140,7 +162,7 @@ const parameters = new URLSearchParams(window.location.search);
 const sortMedia = parameters.get('sort');
 const photographmMediaList = await getPhotographerMediaList(sortMedia);
   displaySortedMedia(photographmMediaList);
-  console.log(photograph)
+ 
   displayBanner(photograph);
 
   // Adding photographer's name into contact modal form 
@@ -159,8 +181,8 @@ const photographmMediaList = await getPhotographerMediaList(sortMedia);
   } else {
     filterSelect.selectedIndex = 0;
   }
-  //lightbox
-  getLightBox()
+  
+ 
 }
   
   
