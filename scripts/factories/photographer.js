@@ -1,5 +1,5 @@
 function photographerFactory(data) {
-    const { name, portrait, city, country, tagline, price, id } = data;
+    const {name, portrait, city, country, tagline, price, id } = data;
 
     const picture = `assets/photographers/${portrait}`;
 
@@ -9,7 +9,7 @@ function photographerFactory(data) {
         banner.classList.add('banner');
         banner.innerHTML = `
         <div class="identityPhotographer">
-            <h1 class="banner">${name}</h1>
+            <h1 class="bannerName">${name}</h1>
             <h3 class="bannerLocation">${city}, ${country}</h3>
             <p class="bannerTagline">${tagline}</p>
         </div>

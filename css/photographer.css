@@ -13,6 +13,12 @@
     display: flex;
     flex-direction: row;
     flex-grow: 1;
+    
+}
+.bannerName{
+  font-size: 60px;
+    color: rgb(211, 87, 60);
+    margin: 0px;
 }
 .bannerPicture{
     height: 200px;
@@ -110,6 +116,8 @@
 .modal header {
     justify-content: space-between;
     width: 100%;
+    height: auto;
+    align-items: start;
 }
 
 .modal header img {
@@ -117,17 +125,18 @@
 }
 
 .modal header h2 {
-  font-size: 40px;
+  font-size: 50px;
   font-weight: normal;
   text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 0px;
 }
 
-.modal header p {
-  font-size: 40px;
-  font-weight: normal;
-  
+#photographerName {
+  font-size: 50px;
+  display: flex;
+    align-items: flex-start;
+    justify-content: start;
+    margin: -20px 0 2rem -160px;
  
 }
 

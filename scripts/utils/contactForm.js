@@ -1,14 +1,13 @@
 // gestion du modal form
-let fname = document.getElementById("fname");
-let l_name = document.getElementById("lname");
-let email = document.getElementById("email");
-let message = document.getElementById("contactMessage");
 
+
+//Open modal contact
 function displayModal() {
-    const modal = document.getElementById("contact_modal");
+  const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
 }
 
+//Close modal contact
 function closeModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
@@ -23,14 +22,19 @@ function closeModal() {
     formData.classList.remove("success")
   }
 
-  // function input success
-  const setSuccess = element => {
+    // function input success
+    const setSuccess = element => {
     const formData =  element.parentElement;
     const errorDisplay = formData.querySelector('.msgError');
     errorDisplay.innerHTML  = '';
     formData.classList.add("success")
     formData.classList.remove("error")
   }
+
+  let fname = document.getElementById("fname");
+  let l_name = document.getElementById("lname");
+  let email = document.getElementById("email");
+  let message = document.getElementById("contactMessage");
 
  
   // control entre de prénom
@@ -103,11 +107,14 @@ function isFormValid() {
     ) {
       return false;
   }else{
-    alert("message envoyé");
+   
   return true;
+  contact.reset();
+}
 }
 
-const validation = document.getElementById["contact_button"];
+const formModal = document.getElementById("form-modal");
+const validation = document.querySelector("#contact_button");
 
 
 validation.addEventListener('click', function(e) {
@@ -119,8 +126,27 @@ validation.addEventListener('click', function(e) {
     return false;
   } else {
   
-    return true;
+    
+    // Build the alert message
+   const alertMessage = `Prénom: ${fname.value}\nNom: ${l_name.value}\nEmail: ${email.value}\nMessage: ${message.value}`;
+   // Show the alert message
+    console.log(alertMessage);
+    // Close the modal
+    closeModal();
   }
+   
+
 })
           
-}
+// button contater moi
+const buttonMouseover = document.querySelector(".contact_button");
+buttonMouseover.addEventListener("mouseover", function(){
+    buttonMouseover.style.backgroundColor="#D3573C";
+    buttonMouseover.style.color="black";
+});
+
+const buttonMouseout = document.querySelector(".contact_button");
+buttonMouseout.addEventListener("mouseout", function(){
+    buttonMouseout.style.backgroundColor="#901C1C";
+    buttonMouseout.style.color="white";
+});
