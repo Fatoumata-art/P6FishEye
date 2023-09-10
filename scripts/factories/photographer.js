@@ -27,15 +27,24 @@ function photographerFactory(data) {
         // article
         const article = document.createElement( 'article' );
 
+         // link for photographer page by id
+         const linkUrl = document.createElement("a")
+         linkUrl.href = `./photographer.html?id=${id}` 
+		article.append(linkUrl); 
+       
+
         // picture
         const img = document.createElement( 'img' );
-        img.setAttribute("src", picture)
-        article.appendChild(img);
-
+        img.setAttribute("src", picture);
+        img.alt = `Photo de ${name}`
+        article.appendChild(img)
+        linkUrl.appendChild(img);
+       
         // name
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
         article.appendChild(h2);
+        linkUrl.appendChild(h2); // put <h2> into <a>
 
         // localisation
         const localisation = document.createElement( 'h3' );
@@ -55,11 +64,7 @@ function photographerFactory(data) {
         pricing.classList.add("photograph-price")
         article.appendChild(pricing)
 
-         // link for photographer page by id
-         const linkUrl = document.createElement("a")
-         linkUrl.href = `./photographer.html?id=${id}` 
-		article.append(linkUrl); 
-        linkUrl.appendChild(h2); // put <h2> into <a>
+        
       
         return (article);
     }
