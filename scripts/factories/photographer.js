@@ -14,7 +14,8 @@ function photographerFactory(data) {
             <p class="bannerTagline">${tagline}</p>
         </div>
         <div class="bannerModal">
-            <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+            <button class="contact_button" aria-haspopup="dialog"
+            aria-controls="dialog" onclick="displayModal()">Contactez-moi</button>
         </div>
         <div class="bannerPicture">
             <img class="bannerPicture" src="${picture}" alt="${name}"></img>

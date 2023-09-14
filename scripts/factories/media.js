@@ -8,9 +8,10 @@ function mediaFactory(media){
 
     const mediaSection = document.createElement('section') ;
     mediaSection.classList.add('photograph-section');
-    
+  
     const mediaDOM = document.createElement('figure');
     mediaDOM.classList.add('photograph-media');
+    mediaDOM.tabIndex="0"
     mediaSection.appendChild(mediaDOM);
     const linkMedia = document.createElement('a');
     linkMedia.classList.add("linkMedia")
@@ -78,6 +79,7 @@ function mediaFactory(media){
        // like button
        const likeButton = document.createElement('i');
        likeButton.classList.add('fas', 'fa-heart');
+       likeButton.setAttribute('title', 'coeur pour aimer le média du phtographe')
        mediaLikes.appendChild(likeButton);
        if (media.isLiked) {
          likeButton.classList.add('liked');

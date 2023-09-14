@@ -1,16 +1,18 @@
 // gestion du modal form
 
-
+let prevActiveElement;
 //Open modal contact
 function displayModal() {
   const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
+  document.querySelector('.modal_close_button').focus();
 }
 
 //Close modal contact
 function closeModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
+    document.querySelector('.modal_close_button').focus();
 }
 
 // function display msg error
@@ -109,7 +111,7 @@ function isFormValid() {
   }else{
    
   return true;
-  contact.reset();
+  
 }
 }
 
@@ -133,6 +135,7 @@ validation.addEventListener('click', function(e) {
     console.log(alertMessage);
     // Close the modal
     closeModal();
+   
   }
    
 
@@ -150,3 +153,18 @@ buttonMouseout.addEventListener("mouseout", function(){
     buttonMouseout.style.backgroundColor="#901C1C";
     buttonMouseout.style.color="white";
 });
+
+//ACCESSIBILITE PAR TOUCHE  "TAB"
+
+
+const keyCodes = {
+  tab: 9,
+  enter: 13,
+  escape: 27,
+};
+
+function closeDialog(e){
+  if(document.querySelector('.c-dialog') == 'false' && e.keyCode === "escape" ){
+    closeModal()
+  }
+}

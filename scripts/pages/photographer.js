@@ -57,11 +57,11 @@ async function displayMedia() {
       const mediaListObj = getPhotographerMediaList();
       mediaListObj.then ( mediaList => {
         mediaList.forEach((mediaObj) => {
-          console.log("Test : ", mediaObj)
+        //  console.log("Test : ", mediaObj)
           const mediaModel = mediaFactory(mediaObj);
           const mediaDOM = mediaModel.getMediaDOM();
 
-          console.log("mediaModel : ", mediaDOM)
+        //  console.log("mediaModel : ", mediaDOM)
           mediaContainer.appendChild(mediaDOM);
         });
       })
@@ -117,29 +117,16 @@ async function displaySortedMedia(media) {
     media.forEach((mediaObj, index) => {
       const mediaModel = mediaFactory(mediaObj);
       const mediaDOM = mediaModel.getMediaDOM();
-      console.log("mediaObj", mediaObj, " index = ", index);
-
-     console.log("test", mediaDOM);
+     
       
-// display lightbox
+      // display lightbox
+      
       mediaDOM.addEventListener('click', function(e){
         e.preventDefault();
-        /*console.log("mediaDOM ",mediaDOM)
-
-        let obj = mediaDOM.querySelector('.linkMedia img');
-        if (!obj) {
-          obj = mediaDOM.querySelector('.linkMedia video');
-        } 
-
-        const mediaID = obj.getAttribute("mediaID");
-         console.log("mediaID  ", mediaID)*/
-       
-        openLightbox(media, index);
-
-        
-      })
       
-
+        openLightbox(media, index); 
+      })
+  
       mediaContainer.appendChild(mediaDOM);
 
      
