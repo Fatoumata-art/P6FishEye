@@ -8,14 +8,14 @@ function photographerFactory(data) {
         const banner = document.createElement('div')
         banner.classList.add('banner');
         banner.innerHTML = `
-        <div class="identityPhotographer">
+        <div class="identityPhotographer" tabIndex="2">
             <h1 class="bannerName">${name}</h1>
             <h3 class="bannerLocation">${city}, ${country}</h3>
             <p class="bannerTagline">${tagline}</p>
         </div>
         <div class="bannerModal">
             <button class="contact_button" aria-haspopup="dialog"
-            aria-controls="dialog" onclick="displayModal()">Contactez-moi</button>
+            aria-controls="dialog" onclick="displayModal()" tabIndex="3">Contactez-moi</button>
         </div>
         <div class="bannerPicture">
             <img class="bannerPicture" src="${picture}" alt="${name}"></img>
@@ -27,9 +27,11 @@ function photographerFactory(data) {
     function getUserCardDOM() {
         // article
         const article = document.createElement( 'article' );
+        article.tabIndex = "3";
 
          // link for photographer page by id
          const linkUrl = document.createElement("a")
+         linkUrl.classList.add("linkPage")
          linkUrl.href = `./photographer.html?id=${id}` 
 		article.append(linkUrl); 
        

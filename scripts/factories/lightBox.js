@@ -115,6 +115,10 @@ function handleKeyPress(event) {
   if (event.keyCode === 39) {
     next();
   }
+  // check if right arrow key was pressed
+  // if (event.keyCode === "Enter") {
+  //   showMedia(media);
+  // }
 
 }
 

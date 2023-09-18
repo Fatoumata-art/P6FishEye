@@ -73,7 +73,7 @@ async function displayCounts(photographer) {
   const main = document.getElementById('main');
   const countDOM = document.createElement('div');
   countDOM.classList.add('counter');
-  main.appendChild(countDOM);
+  
 
   // Get all divs with the class .photograph-media-likes-count
   const likesList = document.querySelectorAll('.photograph-media-likes-count');
@@ -92,6 +92,7 @@ async function displayCounts(photographer) {
         ${photographer.price} <span>€ /jour</span>
     </div>`;
 
+    main.appendChild(countDOM);
 }
 // Get the select element and add an event listener to it
 const filterSelect = document.querySelector('#filter-select');

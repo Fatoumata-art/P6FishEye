@@ -15,7 +15,7 @@ function mediaFactory(media){
     mediaSection.appendChild(mediaDOM);
     const linkMedia = document.createElement('a');
     linkMedia.classList.add("linkMedia")
-   // linkMedia.href = "#";
+    linkMedia.tabIndex= "7";
     linkMedia.setAttribute("alt",title+", vue rapprochée");
     
         

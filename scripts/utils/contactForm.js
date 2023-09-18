@@ -1,6 +1,4 @@
 // gestion du modal form
-
-let prevActiveElement;
 //Open modal contact
 function displayModal() {
   const modal = document.getElementById("contact_modal");
@@ -76,7 +74,7 @@ fname.addEventListener("input", () => {
   function validEmail(email) {
     const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return regexEmail.test(String(email).toLowerCase());
-  };
+  }
   email.addEventListener("input", () => {
     console.log(email.value);
     if(email.value == ''){
@@ -100,7 +98,12 @@ fname.addEventListener("input", () => {
     }
 })
   
-function isFormValid() {
+// validation contact modal form
+const validation = document.querySelector("#contact_button");
+
+validation.addEventListener('click', function(e) {
+
+  e.preventDefault();
   if (!fname.value ||
     !l_name.value ||
     !email.value ||
@@ -109,25 +112,6 @@ function isFormValid() {
     ) {
       return false;
   }else{
-   
-  return true;
-  
-}
-}
-
-const formModal = document.getElementById("form-modal");
-const validation = document.querySelector("#contact_button");
-
-
-validation.addEventListener('click', function(e) {
-
-  e.preventDefault();
-  if (!isFormValid()) {
-    errorSubmit.innerHTML = "Veuillez renseigner tous les champs";
-    errorSubmit.style.color = "red";
-    return false;
-  } else {
-  
     
     // Build the alert message
    const alertMessage = `Prénom: ${fname.value}\nNom: ${l_name.value}\nEmail: ${email.value}\nMessage: ${message.value}`;
@@ -135,9 +119,8 @@ validation.addEventListener('click', function(e) {
     console.log(alertMessage);
     // Close the modal
     closeModal();
-   
+ 
   }
-   
 
 })
           
@@ -154,17 +137,13 @@ buttonMouseout.addEventListener("mouseout", function(){
     buttonMouseout.style.color="white";
 });
 
-//ACCESSIBILITE PAR TOUCHE  "TAB"
+  // add an event listener for the escape key
+  document.addEventListener('keydown', handleKeyPress);
+  // KEYBOARD
+  function handleKeyPress(event) {
+    // check if the escape key was pressed
+    if (event.keyCode === 27) {
+      closeModal();
+    }
 
-
-const keyCodes = {
-  tab: 9,
-  enter: 13,
-  escape: 27,
-};
-
-function closeDialog(e){
-  if(document.querySelector('.c-dialog') == 'false' && e.keyCode === "escape" ){
-    closeModal()
   }
-}
