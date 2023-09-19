@@ -48,12 +48,12 @@
         <p id="photographerName"></p>
 				<form name="contact">
 					<div class="formData">
-						<label>Prénom</label>
+						<label for="fname">Prénom</label>
 						<input class="text-control" type="text" id="fname" name="fname" aria-required="true" tabindex="1">
             <span class="msgError"></span>
 					</div>
           <div class="formData">
-						<label>Nom</label>
+						<label for="lname" >Nom</label>
 						<input class="text-control" type="text" id="lname" name="lname" tabindex="2" aria-required="true">
             <span class="msgError"></span>
 					</div>
@@ -63,7 +63,7 @@
             <span class="msgError"></span>
           </div>
           <div class="formData">
-						<label>Message</label>
+						<label for="message">Message</label>
 						<textarea name="contactMessage" id="contactMessage" cols="30" rows="10" tabindex="4" aria-required="true"></textarea>
 					</div>
           <input type="submit" id="contact_button" tabindex="4  " class="contact_button"  title="Envoyer et Fermer cette fenêtre modale" value="Envoyer">
@@ -80,12 +80,13 @@
     <button class="lightbox-prev">Précédent</button>
     <div class="lightbox-container" id="lightbox-containe" tabindex="0">
       <img src="" alt="" >
-      <video src="" alt="" >
+      <video src="" alt="" ></video>
+      <div class="caption-container" tabIndex ="0">
+        <p class="caption"></p>
+      </div>
     </div>
      <!-- Caption text -->
-     <div class="caption-container" tabIndex ="0">
-      <p class="caption"></p>
-    </div>
+    
   </div>
 
     <script src="/scripts/factories/photographer.js"></script>

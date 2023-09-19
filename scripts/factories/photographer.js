@@ -27,11 +27,12 @@ function photographerFactory(data) {
     function getUserCardDOM() {
         // article
         const article = document.createElement( 'article' );
-        article.tabIndex = "3";
+        article.tabIndex = "-1";
 
          // link for photographer page by id
          const linkUrl = document.createElement("a")
          linkUrl.classList.add("linkPage")
+         linkUrl.tabIndex = "0";
          linkUrl.href = `./photographer.html?id=${id}` 
 		article.append(linkUrl); 
        
@@ -39,6 +40,7 @@ function photographerFactory(data) {
         // picture
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
+        img.tabIndex = "0";
         img.alt = `Photo de ${name}`
         article.appendChild(img)
         linkUrl.appendChild(img);
@@ -46,11 +48,13 @@ function photographerFactory(data) {
         // name
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
+        h2.tabIndex = "0";
         article.appendChild(h2);
         linkUrl.appendChild(h2); // put <h2> into <a>
 
         // localisation
         const localisation = document.createElement( 'h3' );
+        localisation.tabIndex = "0";
         localisation.textContent = city + ', ' + country
         localisation.classList.add("photograph-localisation");
         article.appendChild(localisation);
@@ -58,13 +62,15 @@ function photographerFactory(data) {
         // paragraph
         const paragraph = document.createElement('h4')
         paragraph.textContent = tagline
-        paragraph.classList.add("photograph-tagline")
+        paragraph.classList.add("photograph-tagline");
+        paragraph.tabIndex = "0";
         article.appendChild(paragraph)
 
         // price
         const pricing = document.createElement('span')
         pricing.textContent =  price + '€/jour'
-        pricing.classList.add("photograph-price")
+        pricing.classList.add("photograph-price");
+        pricing.tabIndex = "0";
         article.appendChild(pricing)
 
         
