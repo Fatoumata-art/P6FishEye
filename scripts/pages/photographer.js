@@ -35,7 +35,7 @@ async function getPhotographerMediaList(sortMedia = 'popularity') {
   
 // extract media objects by photographer ID
 const mediaList = photographerData.media.filter(
-mediaPage => mediaPage.photographerId == id
+mediaPage => mediaPage.photographerId == idString
 )
 // sort the media by the specified property for filtering options
 if (sortMedia === 'popularity') {

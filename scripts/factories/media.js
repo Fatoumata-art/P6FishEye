@@ -11,11 +11,10 @@ function mediaFactory(media){
   
     const mediaDOM = document.createElement('figure');
     mediaDOM.classList.add('photograph-media');
-    mediaDOM.tabIndex="0"
+    mediaDOM.tabIndex="-1"
     mediaSection.appendChild(mediaDOM);
     const linkMedia = document.createElement('a');
     linkMedia.classList.add("linkMedia")
-    linkMedia.tabIndex= "7";
     linkMedia.setAttribute("alt",title+", vue rapprochée");
     
         
@@ -55,13 +54,17 @@ function mediaFactory(media){
        // mediaInfo
       const mediaInfo = document.createElement('div');
       mediaInfo.classList.add('photograph-media-info');
+      mediaDOM.tabIndex = "-1";
       mediaDOM.appendChild(mediaInfo);
 
         
       //title
       const h2 = document.createElement('h2');
       h2.textContent = media.title;
-      h2.classList.add("photograph-media-title")
+      h2.classList.add("photograph-media-title");
+      h2.setAttribute('role', 'heading');
+      h2.setAttribute('aria-level', '2');
+      h2.tabIndex = "-1 ";
       mediaInfo.appendChild(h2);
 
       // mediaLikes

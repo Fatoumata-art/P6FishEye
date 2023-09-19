@@ -1,26 +1,5 @@
 
-// window.onload = () => {
-//   const mediaLightbox = document.getElementsByClassName('.photograph-media')
-//   console.log(mediaLightbox);
-// }
-
-
-function getLightboxDOM() {
-  const lightboxDom = document.getElementById('lightboxId');
-  
-  lightboxDom.innerHTML = `
-    <button class="lightbox-close">Fermer</button>
-    <button class="lightbox-next">Suivant</button>
-    <button class="lightbox-prev">Précédent</button>
-    <div class="lightbox-container">
-      <img src="Event_Sparklers.jpg" alt="">
-    </div>
-  ` 
-  
-  
-
- // return lightboxDom
-} 
+// diplay the media lightbox
 
 function showMedia(media) {
   const lightbox = document.querySelector('.lightbox');
@@ -53,11 +32,11 @@ function showMedia(media) {
 }
 
 // OPEN
-function openLightbox(mediaList, index) {
+function openLightbox(mediaList, index) { // EsLint error openlightbox is called in media.js
   let media = mediaList[index];
   //console.log(" media = ", media);
     // display the lightbox with the clicked image
-    const main = document.querySelector('main');
+    const main = document.querySelector('.main');
     main.setAttribute('aria-hidden', 'false');
     main.style = "display: none;";
     const lightbox = document.querySelector('.lightbox');
@@ -108,7 +87,11 @@ document.addEventListener('keydown', handleKeyPress);
 function handleKeyPress(event) {
   // check if the escape key was pressed
   if (event.keyCode === 27) {
-    closeLightbox();
+    const lightbox = document.querySelector('.lightbox');
+    lightbox.style.display = "none";
+    const main = document.querySelector('.main');
+    main.style = "display: block;";
+    
   }
   // check if left arrow key was pressed
   if (event.keyCode === 37) {

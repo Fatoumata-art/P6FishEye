@@ -5,26 +5,29 @@
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+     <script src="https://kit.fontawesome.com/dae4393213.js" crossorigin="anonymous"></script>
     <title>Fisheye - photographe </title>
   </head>
   <body>
     <header>
-      <a href="index.html" id="lien-logo"><img src="assets/images/logo.png" class="logo" alt="logo Fisheye Page photographer" tabindex="1" /></a>
+      <a href="index.html" id="lien-logo"><img src="assets/images/logo.png" class="logo" alt="logo Fisheye Page photographer" /></a>
     </header>
-    <main id="main" class="main"  >
+    <main id="main" class="main">
       <div class="photograph-header">
        
       </div>
       <div class="photograph-filter">
         <!-- filter button -->
+        <div>
         <div class="filter-container">
-          <label for="filter-select" tabindex="4">Trier par :</label>
-          <select id="filter-select" name="filter-select" aria-label="Tri media" tabindex="5">
+          <label for="filter-select" tabindex="0">Trier par :</label>
+          <select id="filter-select" name="filter-select" aria-label="Tri media" tabindex="0">
             <option value="popularity">Popularité</option>
             <option value="date">Date</option>
             <option value="title">Titre</option>
           </select>          
-        </div>                    
+        </div> 
+      </div>                   
         <!-- /filter button -->
       <div class="photograph-body">
 
@@ -63,7 +66,7 @@
             <span class="msgError"></span>
           </div>
           <div class="formData">
-						<label for="message">Message</label>
+						<label for="contactMessage">Message</label>
 						<textarea name="contactMessage" id="contactMessage" cols="30" rows="10" tabindex="4" aria-required="true"></textarea>
 					</div>
           <input type="submit" id="contact_button" tabindex="4  " class="contact_button"  title="Envoyer et Fermer cette fenêtre modale" value="Envoyer">
@@ -81,12 +84,11 @@
     <div class="lightbox-container" id="lightbox-containe" tabindex="0">
       <img src="" alt="" >
       <video src="" alt="" ></video>
-      <div class="caption-container" tabIndex ="0">
-        <p class="caption"></p>
-      </div>
     </div>
      <!-- Caption text -->
-    
+     <div class="caption-container" tabIndex ="0">
+      <p class="caption"></p>
+    </div>
   </div>
 
     <script src="/scripts/factories/photographer.js"></script>

@@ -1,6 +1,6 @@
 // gestion du modal form
 //Open modal contact
-function displayModal() {
+function displayModal() { // error Eslint because funtion calls in phptographer.html
   const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
   document.querySelector('.modal_close_button').focus();

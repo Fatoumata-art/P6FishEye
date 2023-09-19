@@ -8,17 +8,17 @@ function photographerFactory(data) {
         const banner = document.createElement('div')
         banner.classList.add('banner');
         banner.innerHTML = `
-        <div class="identityPhotographer" tabIndex="2">
-            <h1 class="bannerName">${name}</h1>
-            <h3 class="bannerLocation">${city}, ${country}</h3>
-            <p class="bannerTagline">${tagline}</p>
+        <div class="identityPhotographer">
+            <h1 class="bannerName"  tabIndex="0">${name}</h1>
+            <h3 class="bannerLocation"  tabIndex="0">${city}, ${country}</h3>
+            <p class="bannerTagline"   tabIndex="0">${tagline}</p>
         </div>
         <div class="bannerModal">
             <button class="contact_button" aria-haspopup="dialog"
-            aria-controls="dialog" onclick="displayModal()" tabIndex="3">Contactez-moi</button>
+            aria-controls="dialog" onclick="displayModal()" tabIndex="0">Contactez-moi</button>
         </div>
         <div class="bannerPicture">
-            <img class="bannerPicture" src="${picture}" alt="${name}"></img>
+            <img class="bannerPicture" src="${picture}" alt="${name}"  tabIndex="0"></img>
         </div>
         `
         return banner
