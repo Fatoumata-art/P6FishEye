@@ -98,7 +98,21 @@ fname.addEventListener("input", () => {
     }
 })
   
-// validation contact modal form
+function isFormValid() {
+  if (!fname.value ||
+    !l_name.value ||
+    !email.value ||
+    !message.value
+   
+    ) {
+      return false;
+  }else{
+   
+  return true;
+  
+}
+}
+
 const validation = document.querySelector("#contact_button");
 
 validation.addEventListener('click', function(e) {
@@ -110,9 +124,14 @@ validation.addEventListener('click', function(e) {
     !message.value
    
     ) {
+      const form = document.querySelector('form');
+      const dangerDiv = document.createElement('div');
+    dangerDiv.classList.add('danger');
+    dangerDiv.innerHTML = '<p>Veuillez remplir correctement le formulaire</p>';
+    form.parentNode.insertBefore(dangerDiv, form.nextSibling);
       return false;
   }else{
-    
+   
     // Build the alert message
    const alertMessage = `Prénom: ${fname.value}\nNom: ${l_name.value}\nEmail: ${email.value}\nMessage: ${message.value}`;
    // Show the alert message

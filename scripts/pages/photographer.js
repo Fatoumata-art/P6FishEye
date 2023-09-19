@@ -152,6 +152,19 @@ const photographmMediaList = await getPhotographerMediaList(sortMedia);
   displaySortedMedia(photographmMediaList);
  
   displayBanner(photograph);
+  // button contater moi
+const buttonMouseover = document.querySelector(".contact_button");
+buttonMouseover.addEventListener("mouseover", function(){
+    buttonMouseover.style.backgroundColor="#D3573C";
+    buttonMouseover.style.color="black";
+});
+
+const buttonMouseout = document.querySelector(".contact_button");
+buttonMouseout.addEventListener("mouseout", function(){
+    buttonMouseout.style.backgroundColor="#901C1C";
+    buttonMouseout.style.color="white";
+});
+
 
   // Adding photographer's name into contact modal form 
  

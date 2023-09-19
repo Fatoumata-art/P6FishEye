@@ -57,6 +57,9 @@ function openLightbox(mediaList, index) {
   let media = mediaList[index];
   //console.log(" media = ", media);
     // display the lightbox with the clicked image
+    const main = document.querySelector('main');
+    main.setAttribute('aria-hidden', 'false');
+    main.style = "display: none;";
     const lightbox = document.querySelector('.lightbox');
     const nextButton = lightbox.querySelector(".lightbox-next");
     const prevButton = lightbox.querySelector(".lightbox-prev");

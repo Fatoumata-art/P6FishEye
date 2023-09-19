@@ -108,7 +108,7 @@
     max-width: 600px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     justify-content: space-between;
     padding: 35px;
 }
@@ -166,11 +166,7 @@
 
 #photographerName {
   font-size: 50px;
-  display: flex;
-    align-items: flex-start;
-    justify-content: start;
-    margin: -20px 0 2rem -160px;
- 
+ margin-top: -30px;
 }
 
 form {
@@ -205,6 +201,18 @@ form textarea {
     border: none;
     border-radius: 5px;
 }
+
+.danger p {
+  margin-top: 2rem;
+  color: #901C1C;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FAFAFA;
+  padding: 8px;
+  border-radius: 5px;
+}
+
 .photograph-section{
     
     width: 100%;
