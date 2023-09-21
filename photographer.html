@@ -16,18 +16,22 @@
       <div class="photograph-header">
        
       </div>
+       <!-- filter button -->
       <div class="photograph-filter">
-        <!-- filter button -->
-        <div>
+        <div class="filter">
+        <p class="filter-selec-titlet" tabindex="0">Trier par :</p>
         <div class="filter-container">
-          <label for="filter-select" tabindex="0">Trier par :</label>
           <select id="filter-select" name="filter-select" aria-label="Tri media" tabindex="0">
             <option value="popularity">Popularité</option>
             <option value="date">Date</option>
             <option value="title">Titre</option>
-          </select>          
+          </select>
+          <div class="container-icon">
+            <i class="fa-solid fa-chevron-down"></i> 
+          <!--<img src="assets/icons/chevronDown.svg" alt="">   -->     
+          </div> 
         </div> 
-      </div>                   
+       </div>                  
         <!-- /filter button -->
       <div class="photograph-body">
 

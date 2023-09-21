@@ -183,6 +183,13 @@ buttonMouseout.addEventListener("mouseout", function(){
     filterSelect.selectedIndex = 0;
   }
   
+  const div = document.querySelector('.filter-container');
+  const icon = div.querySelector('.container-icon');
+  //const selectBtn = div.querySelector('.filter-containe');
+  console.log(icon);
+  div.addEventListener("click", () => {
+    icon.classList.toggle("active");
+  })
  
 }
   
