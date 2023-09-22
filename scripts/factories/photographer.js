@@ -1,4 +1,5 @@
-function photographerFactory(data) {
+/* eslint-disable no-unused-vars */
+function photographerFactory(data) { //is defined but never use /  it's been used into page/photographer.js
     const {name, portrait, city, country, tagline, price, id } = data;
 
     const picture = `assets/photographers/${portrait}`;

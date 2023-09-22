@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 //Mettre le code JavaScript lié à la page photographer.html
 
 
@@ -20,7 +21,7 @@ return photographer
 
 function displayBanner(data){
   const photographBanner = document.querySelector('.photograph-header');
-  const photographerModel = photographerFactory(data);
+  const photographerModel = photographerFactory(data);  //no-undef ESLint def in factories/photographer.js
   const bannerDOM = photographerModel.getPhotographerBannerDOM();
   photographBanner.appendChild(bannerDOM);
  
@@ -49,25 +50,26 @@ if (sortMedia === 'popularity') {
 return mediaList;
   
 }
-async function displayMedia() {
+// async function displayMedia() {
  
-    const mediaContainer = document.querySelector('.photograph-body');
+//     const mediaContainer = document.querySelector('.photograph-body');
   
-    if (mediaContainer) {
-      const mediaListObj = getPhotographerMediaList();
-      mediaListObj.then ( mediaList => {
-        mediaList.forEach((mediaObj) => {
-        //  console.log("Test : ", mediaObj)
-          const mediaModel = mediaFactory(mediaObj);
-          const mediaDOM = mediaModel.getMediaDOM();
+//     if (mediaContainer) {
+//       const mediaListObj = getPhotographerMediaList();
+//       mediaListObj.then ( mediaList => {
+//         mediaList.forEach((mediaObj) => {
+//         //  console.log("Test : ", mediaObj)
+//           // eslint-disable-next-line no-undef
+//           const mediaModel = mediaFactory(mediaObj); //no-undef ESLint def in media.js
+//           const mediaDOM = mediaModel.getMediaDOM();
 
-        //  console.log("mediaModel : ", mediaDOM)
-          mediaContainer.appendChild(mediaDOM);
-        });
-      })
-    }
+//         //  console.log("mediaModel : ", mediaDOM)
+//           mediaContainer.appendChild(mediaDOM);
+//         });
+//       })
+//     }
     
-}
+// }
 // price  photographer
 async function displayCounts(photographer) {
   const main = document.getElementById('main');
