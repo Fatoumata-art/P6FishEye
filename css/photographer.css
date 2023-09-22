@@ -332,6 +332,10 @@ form textarea {
     margin-right: 75%;
   } 
 
+  .filter-container label{
+    display: none;
+  }
+
   .filter-container select{
     font-size: 15px;
     font-weight: 400;

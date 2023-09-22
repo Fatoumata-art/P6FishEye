@@ -23,7 +23,7 @@
                 <div class="filter">
                     <p class="filter-selec-titlet" tabindex="0">Trier par :</p>
                     <div class="filter-container" tabindex="0">
-                        <label for="filter-select"></label>
+                        <label for="filter-select">Trier</label>
                         <select id="filter-select" name="filter-select" aria-label="Tri media">
                             <option value="popularity">Popularité</option>
                             <option value="date">Date</option>
@@ -45,11 +45,11 @@
             aria-describedby="modal-desc"
             aria-modal="true"
             class="c-dialog">
-            <div class="modal-backdrop" onclick="closeModal()"></div>
+            <div class="modal-backdrop"></div>
             <div class="modal" role="document">
                 <header>
                     <h2 id="dialog-title">Contactez-moi</h2>
-                    <button class="modal_close_button" aria-label="Fermer" title="Fermer la fenêtre modale" onclick="closeModal()" tabindex="1">
+                    <button class="modal_close_button" aria-label="Fermer" title="Fermer la fenêtre modale" onclick="closeModal()" tabindex="0">
                         <img src="assets/icons/close2.svg" alt="Fermer la fenêtre modale">
                     </button>
                 </header>
@@ -57,26 +57,26 @@
                 <form name="contact">
                     <div class="formData">
                         <label for="fname">Prénom</label>
-                        <input class="text-control" type="text" id="fname" name="fname" aria-required="true" tabindex="1">
+                        <input class="text-control" type="text" id="fname" name="fname" tabindex="0" required>
                         <span class="msgError"></span>
                     </div>
                     <div class="formData">
                         <label for="lname">Nom</label>
-                        <input class="text-control" type="text" id="lname" name="lname" tabindex="0" aria-required="true">
+                        <input class="text-control" type="text" id="lname" name="lname" tabindex="0" required>
                         <span class="msgError"></span>
                     </div>
                     <div class="formData">
                         <label for="email">E-mail</label>
                         <br>
-                        <input class="text-control" type="email" id="email" name="email" tabindex="0" area-required="true">
+                        <input class="text-control" type="email" id="email" name="email" tabindex="0" required>
                         <br>
                         <span class="msgError"></span>
                     </div>
                     <div class="formData">
                         <label for="contactMessage">Message</label>
-                        <textarea name="contactMessage" id="contactMessage" cols="30" rows="10" tabindex="0" aria-required="true"></textarea>
+                        <textarea name="contactMessage" id="contactMessage" cols="30" rows="10" tabindex="0" required></textarea>
                     </div>
-                    <input type="submit" id="contact_button" tabindex="4  " class="contact_button" title="Envoyer et Fermer cette fenêtre modale" value="Envoyer">
+                    <input type="submit" id="contact_button" tabindex="0" class="contact_button" title="Envoyer et Fermer cette fenêtre modale" value="Envoyer">
                 </form>
             </div>
         </div>

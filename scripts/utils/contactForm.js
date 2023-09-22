@@ -1,5 +1,7 @@
 // gestion du modal form
 //Open modal contact
+const openM = document.querySelector('.contact_button');
+openM.addEventListener('click', displayModal);
 function displayModal() { // error Eslint because funtion calls in phptographer.html
   const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
@@ -7,6 +9,8 @@ function displayModal() { // error Eslint because funtion calls in phptographer.
 }
 
 //Close modal contact
+const closeX = document.querySelector('.modal-backdrop');
+closeX.addEventListener('click', closeModal);
 function closeModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
@@ -72,6 +76,7 @@ fname.addEventListener("input", () => {
   
   // control entre de email
   function validEmail(email) {
+    // eslint-disable-next-line no-useless-escape
     const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return regexEmail.test(String(email).toLowerCase());
   }
@@ -98,23 +103,8 @@ fname.addEventListener("input", () => {
     }
 })
   
-function isFormValid() {
-  if (!fname.value ||
-    !l_name.value ||
-    !email.value ||
-    !message.value
-   
-    ) {
-      return false;
-  }else{
-   
-  return true;
-  
-}
-}
-
+// validation form
 const validation = document.querySelector("#contact_button");
-
 validation.addEventListener('click', function(e) {
 
   e.preventDefault();
