@@ -32,6 +32,7 @@ function showMedia(media) {
 }
 
 // OPEN
+// eslint-disable-next-line no-unused-vars
 function openLightbox(mediaList, index) { // EsLint error openlightbox is called in media.js
   let media = mediaList[index];
   //console.log(" media = ", media);
@@ -49,7 +50,7 @@ function openLightbox(mediaList, index) { // EsLint error openlightbox is called
     nextButton.tabIndex ="1"
     nextButton.addEventListener('click', next)
 
-    function next () {
+    function next () { 
       if (index <= mediaList.length) {
         index++;
         media = mediaList[index];

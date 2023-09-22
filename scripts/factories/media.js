@@ -1,4 +1,6 @@
-function mediaFactory(media){
+/* eslint-disable no-unused-vars */
+// eslint-disable-next-line no-unused-vars
+function mediaFactory(media){  //is defined but never use /  it's been used into factories/media.js
     const {  title, image, likes, date, price} = media;
 
     const photo = `assets/images/${media.photographerId}/${media.image}`;

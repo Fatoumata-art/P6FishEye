@@ -118,13 +118,14 @@ async function displaySortedMedia(media) {
  
   if (mediaContainer) {
     media.forEach((mediaObj, index) => {
-      const mediaModel = mediaFactory(mediaObj);
+      const mediaModel = mediaFactory(mediaObj); //no-undef ESLint def in factories/media.js
       const mediaDOM = mediaModel.getMediaDOM();
-     
+     //console.log("mediaDOM", mediaDOM);
       
       // display lightbox
-      
-      mediaDOM.addEventListener('click', function(e){
+      const mediaLightbox = mediaDOM.querySelector('.linkMedia');
+      console.log("mediaDOM", mediaLightbox);
+      mediaLightbox.addEventListener('click', function(e){
         e.preventDefault();
       
         openLightbox(media, index); 

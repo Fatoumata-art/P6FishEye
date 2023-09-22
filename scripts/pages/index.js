@@ -26,11 +26,12 @@
         const photographersSection = document.querySelector(".photographer_section");
 
         photographers.forEach((photographer) => {
-            const photographerModel = photographerFactory(photographer);
+            // eslint-disable-next-line no-undef
+            const photographerModel = photographerFactory(photographer); //no-undef ESLint def in factories/photographer.js
             const userCardDOM = photographerModel.getUserCardDOM();
             photographersSection.appendChild(userCardDOM);
         });
-    };
+    }
 
     async function init() {
         // pour utilisation de Promise //
@@ -39,7 +40,7 @@
         const photographers = await getPhotographers()
         // Affiche les Photographes
         displayData(photographers);
-    };
+    }
     
     init();
     
