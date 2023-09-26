@@ -293,7 +293,7 @@ form textarea {
     justify-content: end;
 }
   
-
+/* filter button */
   
    .filter-container {
     display: flex;
@@ -340,6 +340,7 @@ form textarea {
     font-size: 15px;
     font-weight: 400;
     border: none;
+     width: 120px;
     background-color: #901C1C;
     color: white;
     appearance: none;
@@ -375,6 +376,7 @@ form textarea {
    option:hover{
     background-color: #D3573C;
    }
+   /* end filter button */
  
 
 /* The lightbox container */
