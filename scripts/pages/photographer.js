@@ -50,26 +50,7 @@ if (sortMedia === 'popularity') {
 return mediaList;
   
 }
-// async function displayMedia() {
- 
-//     const mediaContainer = document.querySelector('.photograph-body');
-  
-//     if (mediaContainer) {
-//       const mediaListObj = getPhotographerMediaList();
-//       mediaListObj.then ( mediaList => {
-//         mediaList.forEach((mediaObj) => {
-//         //  console.log("Test : ", mediaObj)
-//           // eslint-disable-next-line no-undef
-//           const mediaModel = mediaFactory(mediaObj); //no-undef ESLint def in media.js
-//           const mediaDOM = mediaModel.getMediaDOM();
 
-//         //  console.log("mediaModel : ", mediaDOM)
-//           mediaContainer.appendChild(mediaDOM);
-//         });
-//       })
-//     }
-    
-// }
 // price  photographer
 async function displayCounts(photographer) {
   const main = document.getElementById('main');
@@ -124,7 +105,7 @@ async function displaySortedMedia(media) {
       
       // display lightbox
       const mediaLightbox = mediaDOM.querySelector('.linkMedia');
-      console.log("mediaDOM", mediaLightbox);
+      //console.log("mediaDOM", mediaLightbox);
       mediaLightbox.addEventListener('click', function(e){
         e.preventDefault();
       
@@ -191,7 +172,7 @@ buttonMouseout.addEventListener("mouseout", function(){
   //const selectBtn = div.querySelector('.filter-containe');
   console.log(icon);
   div.addEventListener("click", () => {
-    icon.classList.toggle("active");
+    div.classList.toggle("active");
   })
  
 }

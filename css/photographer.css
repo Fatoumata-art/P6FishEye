@@ -4,6 +4,7 @@
     display: none;
 }
 
+
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
@@ -59,20 +60,20 @@
 }
 .photograph-header .headerName {
     color: #D3573C;
-    font-size: 64px;
+    font-size: 20px;
     font-weight: 400;
     margin: 0;
 }
 
 .photograph-header .headerLocation {
     color: #901C1C;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 400;
     margin: 0;
 }
 
 .photograph-header .headerTagline {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 400;
     color: #525252;
 }
@@ -82,21 +83,22 @@
 }
 
 .contact_button {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     color: white;
     padding: 11px;
     width: 170px;
-    height: 70px;
+    height: 60px;
     border: none;
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 15px;
 }
 
 .modal {
     overflow-y: auto;
-    max-height: 80vh;
+    height: 95vh;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -104,13 +106,12 @@
     z-index: 9999;
     border-radius: 5px;
     background-color: #DB8876;
-    width: 50%;
+    width: 35%;
     max-width: 600px;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     justify-content: space-between;
-    padding: 35px;
+    padding: 10px 30px 0 30px;
 }
 
 .modal-backdrop {
@@ -158,14 +159,14 @@
 }
 
 .modal header h2 {
-  font-size: 50px;
+  font-size: 40px;
   font-weight: normal;
   text-align: center;
   margin-top: 0px;
 }
 
 #photographerName {
-  font-size: 50px;
+  font-size: 40px;
  margin-top: -30px;
 }
 
@@ -174,11 +175,12 @@ form {
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
+    margin-top: -30px;
 }
 
 form label {
     color: #312E2E;
-    font-size: 36px;
+    font-size: 17px;
 }
 
 form div {
@@ -186,25 +188,30 @@ form div {
     flex-direction: column;
     width: 100%;
     align-items: self-start;
-    margin-bottom: 26px;
+    
+   
 }
 
 form input {
     width: 100%;
-    height: 68px;
+    height: 40px;
     border: none;
     border-radius: 5px;
 }
+
+
+
 
 form textarea {
     width: 100%;
     border: none;
-    border-radius: 5px;
+    border-radius: 5px; 
+    height: 100px;
 }
 
 .danger p {
   margin-top: 2rem;
-  color: #901C1C;
+  color: rgb(240, 22, 22);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -221,22 +228,27 @@ form textarea {
 .photograph-body{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    padding-left: 30px;
-    padding-right: 30px;
+    gap: 18px;
+   
     
+}
+.photograph-media{
+  margin: 0;
 }
 .photograph-media-video, .photograph-media-img{
     padding: 0;
     border-radius: 5px;
-    object-fit: cover;
-    height: 300px;
+    height: 360px;
     width: 100%;
+    object-fit: cover;
+    
 }
 .photograph-media-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 0 0 0;
+    margin-bottom: 20px;
 }
 
 .photograph-media-title, .photograph-media-likes-count {
@@ -294,59 +306,91 @@ form textarea {
 }
   
 /* filter button */
-  
-   .filter-container {
-    display: flex;
-    align-items: center;
-    margin: 50px 100px 20px;
-}
 
+.photograph-filter{
+  margin: 0 100px;
+}
+  
 .filter{
   display: flex;
   justify-content: space-between;
-
+  position: relative; 
+  margin: 30px 10px;
+  width: 300px;
+  
+ 
 }
+
+.filter-selec-title{
+  font-size: 1.2rem;
+  font-weight: 200;
+}
+   .filter-container {
+    display: flex;
+    align-items: center;
+   
+   
+   
+    
+    /* background-color: #901C1C;
+    border-radius: 5px; */
+    cursor: pointer;
+}
+
+
 
 
   
   .filter-container label {
-    font-size: 14px;
+    /* font-size: 14px;
     font-weight: bold;
-    margin-right: 20px;
-  }
-  
-  .filter-selec-titlet{
-    margin: 50px 10px 40px 100px;
-  }
-
-  .filter-container {
-    position: relative;
-    background-color: #901C1C;
-    border-radius: 5px;
-    display: flex;
-   justify-content: space-between;
-    cursor: pointer;  
-    margin: 35px 100px 20px 0px;
-    
-
-    margin-right: 75%;
-  } 
-
-  .filter-container label{
+    margin-right: 20px; */
     display: none;
   }
+  
 
-  .filter-container select{
-    font-size: 15px;
-    font-weight: 400;
-    border: none;
-     width: 120px;
+/* .filter-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  transition: 0.3s;
+} */
+
+ 
+.filter-container.active .container-icon{
+  transform: rotate(-180deg);
+}  
+
+  .filter-container select {
+    position: relative;
+   border: none;
+   appearance: none;
+    border-radius: 5px;
+    padding: 0 30px 0 15px;
     background-color: #901C1C;
     color: white;
-    appearance: none;
-    padding: 0 40px 0 20px;
-    width: 140px;
+    font-size: 1rem;
+    width: 150px;
+    height: 50px;
+    
   }
+
+  .filter-container ul li{
+    position: relative;
+    margin-top: 2px;
+    border-radius: 5px;
+    padding: 16px;
+    background-color: white;
+    box-shadow: gray;
+    display: none;
+  }
+  
+  .select_header.open ~ .list_ingredient{
+    display: block;
+  }
+  
+  
 
  .filter-container .container-icon  {
   width: 30px;
@@ -360,21 +404,18 @@ form textarea {
   margin-right: 5px;
  
 }
-  
-.filter-container .container-icon.active{
-  transform: rotate(-180deg);
-}
-  /* .filter-container select::-ms-expand {
+ 
+  /* .filter-container ul::-ms-expand {
     display: none;
   }
    */
 
-   option{
+   li{
     padding: 10px;
     margin-top: 10px;
    }
 
-   option:hover{
+   li:hover{
     background-color: #D3573C;
    }
    /* end filter button */
@@ -444,22 +485,22 @@ form textarea {
   
   .lightbox-container {
     display: flex;
-    align-items: center;
     justify-content: center;
     margin: 0 50px;
+    height: 90vh;
+   
   }
 
   .lightbox-container img, .lightbox-container video{
     object-fit: cover;
-    max-height: 90vh;
-    width: 1200px;
+    width: 650px;
     margin: 0 auto;
+    margin-top: 10px;
   }
 
   /* Caption text */
 .caption-container {
-  text-align: left;
-  width: 1200px;
-  margin-left: 165px;
+  margin: 0 auto;
+  width: 650px;
   color: #901C1C;
 }

@@ -21,7 +21,7 @@
             <!-- filter button -->
             <div class="photograph-filter">
                 <div class="filter">
-                    <p class="filter-selec-titlet" tabindex="0">Trier par :</p>
+                    <p class="filter-selec-title" tabindex="0">Trier par :</p>
                     <div class="filter-container" tabindex="0">
                         <label for="filter-select">Trier</label>
                         <select id="filter-select" name="filter-select" aria-label="Tri media">
@@ -55,24 +55,23 @@
                 <form name="contact">
                     <div class="formData">
                         <label for="fname">Prénom</label>
-                        <input class="text-control" type="text" id="fname" name="fname" tabindex="0" required>
+                        <input class="text-control" type="text" id="fname" name="fname" tabindex="0">
                         <span class="msgError"></span>
                     </div>
                     <div class="formData">
                         <label for="lname">Nom</label>
-                        <input class="text-control" type="text" id="lname" name="lname" tabindex="0" required>
+                        <input class="text-control" type="text" id="lname" name="lname" tabindex="0">
                         <span class="msgError"></span>
                     </div>
                     <div class="formData">
                         <label for="email">E-mail</label>
-                        <br>
-                        <input class="text-control" type="email" id="email" name="email" tabindex="0" required>
-                        <br>
+                        <input class="text-control" type="email" id="email" name="email" tabindex="0">
                         <span class="msgError"></span>
                     </div>
                     <div class="formData">
                         <label for="contactMessage">Message</label>
-                        <textarea name="contactMessage" id="contactMessage" cols="30" rows="10" tabindex="0" required></textarea>
+                        <textarea name="contactMessage" id="contactMessage" cols="20" rows="10" tabindex="0"></textarea>
+                        <span class="msgError"></span>
                     </div>
                     <input type="submit" id="contact_button" tabindex="0" class="contact_button" title="Envoyer et Fermer cette fenêtre modale" value="Envoyer">
                 </form>
@@ -86,8 +85,8 @@
             <button class="lightbox-next" tabIndex ="1">Suivant</button>
             <button class="lightbox-prev">Précédent</button>
             <div class="lightbox-container" id="lightbox-containe" tabindex="0">
-                <img src="" alt="">
-                <video src=""></video>
+                <img class="m_lightbox" src="" alt="">
+                <video class="m_lightbox" src=""></video>
             </div>
             <!-- Caption text -->
             <div class="caption-container" tabIndex ="0">

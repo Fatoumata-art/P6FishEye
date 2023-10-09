@@ -1,4 +1,3 @@
-
 // diplay the media lightbox
 
 function showMedia(media) {
@@ -35,7 +34,7 @@ function showMedia(media) {
 // eslint-disable-next-line no-unused-vars
 function openLightbox(mediaList, index) { // EsLint error openlightbox is called in media.js
   let media = mediaList[index];
-  //console.log(" media = ", media);
+  console.log(" media = ", media);
     // display the lightbox with the clicked image
     const main = document.querySelector('.main');
     main.setAttribute('aria-hidden', 'false');
@@ -50,18 +49,32 @@ function openLightbox(mediaList, index) { // EsLint error openlightbox is called
     nextButton.tabIndex ="1"
     nextButton.addEventListener('click', next)
 
+    if (index == 0) { // debut de liste
+      // pas afficher button previous
+      prevButton.style.display = "none";
+    }
+
+    if (index + 1 == mediaList.length) { // fin de liste
+      // pas afficher next button
+      nextButton.style.display = "none";
+    }
+
     function next () { 
-      if (index <= mediaList.length) {
+      if (index + 1 < mediaList.length) {
         index++;
         media = mediaList[index];
-     
-        if(index >= media.length - 1){
-          showMedia(media);
-          nextButton.style.display = "none"
-          nextButton.tabIndex = "-1";
-        }else{
-          showMedia(media);
+        console.log("test",media)
+        showMedia(media);
+
+        if(index + 1 < mediaList.length){
+          nextButton.style.display = "block";
+          //nextButton.tabIndex = "-1";
+        } else {
+          nextButton.style.display = "none";
         }
+
+        prevButton.style.display = "block";
+        
       } 
     }
 
@@ -70,16 +83,19 @@ function openLightbox(mediaList, index) { // EsLint error openlightbox is called
     prevButton.addEventListener('click', previous )
 
     function previous() {
-      index--;
-      media = mediaList[index];
-      showMedia(media);
-        if(index == 0){
-          showMedia(media);
-          prevButton.style.display = "none"
-          prevButton.tabIndex ="-1" 
-        }else{
-          showMedia(media);
-      }
+      if (index > 0) {
+        index--;
+        media = mediaList[index];
+        showMedia(media);
+       if (index - 1 > 0) {
+         prevButton.style.display = "block";
+       } else {
+        prevButton.style.display = "none";
+       }
+
+       nextButton.style.display = "block";
+
+      }    
     }
 
     // add an event listener for the escape key
@@ -124,6 +140,10 @@ function closeLightbox(){
       // hide the lightbox
     document.querySelector('.lightbox').style.display = "none";
     document.querySelector('.lightbox').setAttribute('aria-hidden', 'true');
+
+    const main = document.querySelector('.main');
+    main.setAttribute('aria-hidden', 'true');
+    main.style = "display: block;";
 
     // reset the video element to stop playback
     const video = document.querySelector('.photograph-media-video');

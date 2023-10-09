@@ -8,7 +8,7 @@
             const res = await fetch(JSONFile)
             
             if (res.ok) {
-                const data = await res.json()
+                const data = await res.json() // retourne la reponse en tant que object
                 photographers = data.photographers
             }
             return photographers
@@ -16,9 +16,6 @@
             console.log(err)
             return new Error('impossible de contacter le serveur')
         }
-
-        
-    
         
     }
 

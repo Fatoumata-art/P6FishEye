@@ -75,12 +75,18 @@ h1 {
     outline: 0;
     }
     
-    .formData.error input{
-      border-color: #000000;
-    }
+
     .formData .msgError{
-      color: #000000;
-      font-size: 1rem;
+      color: red;
+      font-size: 10px;
       height: 13px;
     }
+
+    .formData.success  input{
+        border-color: rgb(84, 243, 84) 2px solid;
+      }
+      
+      .formData.error  input{
+        border-color: rgb(218, 12, 12) 2px solid;
+      }
     

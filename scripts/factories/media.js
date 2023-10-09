@@ -22,9 +22,6 @@ function mediaFactory(media){  //is defined but never use /  it's been used into
     linkMedia.setAttribute("alt",title+", vue rapprochée");
     
         
-    
-    
-       
        //check if it is img or video
        if(media.video){
             //video
