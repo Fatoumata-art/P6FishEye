@@ -82,7 +82,7 @@ function mediaFactory(media){  //is defined but never use /  it's been used into
 
        // like button
        const likeButton = document.createElement('i');
-       likeButton.classList.add('fas', 'fa-heart');
+       likeButton.classList.add('fa-regular', 'fa-heart');
        likeButton.setAttribute('title', 'coeur pour aimer le média du phtographe')
        mediaLikes.appendChild(likeButton);
        if (media.isLiked) {
@@ -94,11 +94,12 @@ function mediaFactory(media){  //is defined but never use /  it's been used into
          if (media.isLiked) {
            media.likes--;
            media.isLiked = false;
-           likeButton.classList.remove('liked');
+          likeButton.classList.remove('fas', 'fa-heart');
+          likeButton.classList.add('fa-regular', 'fa-heart')
          } else {
            media.likes++;
            media.isLiked = true;
-           likeButton.classList.add('liked');
+          likeButton.classList.add('fas', 'fa-heart');
          }
          likeCount.innerText = media.likes;
 
